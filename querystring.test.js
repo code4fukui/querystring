@@ -7,3 +7,9 @@ Deno.test("parse", () => {
 Deno.test("stringify", () => {
   t.assertEquals(querystring.stringify({ foo: 'bar', baz: "q", corge: '' }), "foo=bar&baz=q&corge=");
 });
+Deno.test("escape", () => {
+  t.assertEquals(querystring.escape("&"), "%26");
+});
+Deno.test("unescape", () => {
+  t.assertEquals(querystring.unescape("%26"), "&");
+});
